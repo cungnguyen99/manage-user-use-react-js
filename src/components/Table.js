@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import CardAdd from './CardAdd'
 
 export default class Table extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <section>
           <h1>Fixed Table header</h1>
+          <div className="row">
+            <div className="col-9">
           <div className="tbl-header">
             <table cellPadding={0} cellSpacing={0} border={0}>
               <thead>
@@ -66,6 +69,11 @@ export default class Table extends Component {
                 </div></td>
               </tr>
             </table>
+            </div>
+          </div>
+            <div className="col-3">
+              <CardAdd/>
+            </div>
           </div>
         </section>
       </div>

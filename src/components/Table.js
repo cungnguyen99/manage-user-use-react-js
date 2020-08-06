@@ -7,7 +7,7 @@ export default class Table extends Component {
       <div className="container-fluid">
         <section>
           <div className="row">
-            <div className="col-10">
+            <div className="col-9">
           <div className="tbl-header">
             <table cellPadding={0} cellSpacing={0} border={0}>
               <thead>
@@ -78,7 +78,7 @@ export default class Table extends Component {
             </table>
             </div>
           </div>
-            <div className="col-2">
+            <div className="col-3">
               <CardAdd/>
             </div>
           </div>

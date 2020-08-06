@@ -105,3 +105,14 @@ h5.card-title{
   left: 5%;
   bottom: 70% !important;
 }
+
+.disable{
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+.visiable{
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}

@@ -16,10 +16,14 @@ export default class SearchBar extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <form id="content">
-            <input type="text" name="input" onClick={this.handleTogle} id="search-input" class={!this.state.isOpen?"input":"input square"}  />
-            <button type="reset" class={!this.state.isOpen?"search":"search close"}  id="search-btn"></button>
-          </form>
+          <div className="wrap">
+            <div className="search">
+              <input type="text" className="searchTerm" placeholder="What are you looking for?" />
+              <button type="submit" className="searchButton">
+                <i className="fa fa-search" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     )

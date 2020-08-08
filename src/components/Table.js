@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CardAdd from './CardAdd'
 import Button from './Button'
-
+import SingleRow from './SingleRow';
 export default class Table extends Component {
   constructor(props) {
     super(props);
@@ -9,8 +9,11 @@ export default class Table extends Component {
       isCollapsed: false
     }
   }
+
   handleTogle=()=>{this.setState({isCollapsed:!this.state.isCollapsed})}
+
   render() {
+    console.log(this.props.data)
     return (
       <div className="container-fluid">
         <section>
@@ -32,57 +35,12 @@ export default class Table extends Component {
           <div className="tbl-content">
             <table cellPadding={0} cellSpacing={0} border={0}>
               <tbody>
-                <tr>
-                  <td>AAC</td>
-                  <td>AUSTRALIAN COMPANY </td>
-                  <td>$1.38</td>
-                  <td>+2.01</td>
-                  <td>
-                    <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                      <button type="button" className="btn btn-outline-success"> <i className="fa fa-edit"> Edit
-                      </i></button>
-                      <button type="button" className="btn btn-outline-danger"><i className="fa fa-remove"> Remove
-                      </i></button>
-                    </div>
-                  </td>
-                </tr>
+               {
+                 this.props.data.map((value, key)=>{
+                   return <SingleRow value={value} key={key}/>
+                 })
+                }
               </tbody>
-              <tr>
-                <td>AAD</td>
-                <td>AUSENCO</td>
-                <td>$2.38</td>
-                <td>-0.01</td>
-                <td> <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                <button type="button" className="btn btn-outline-success"> <i className="fa fa-edit"> Edit
-                      </i></button>
-                      <button type="button" className="btn btn-outline-danger"><i className="fa fa-remove"> Remove
-                      </i></button>
-                </div></td>
-              </tr>
-              <tr>
-                <td>AAX</td>
-                <td>ADELAIDE</td>
-                <td>$3.22</td>
-                <td>+0.01</td>
-                <td> <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                <button type="button" className="btn btn-outline-success"> <i className="fa fa-edit"> Edit
-                      </i></button>
-                      <button type="button" className="btn btn-outline-danger"><i className="fa fa-remove"> Remove
-                      </i></button>
-                </div></td>
-              </tr>
-              <tr>
-                <td>AAX</td>
-                <td>ADELAIDE</td>
-                <td>$3.22</td>
-                <td>+0.01</td>
-                <td> <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                <button type="button" className="btn btn-outline-success"> <i className="fa fa-edit"> Edit
-                      </i></button>
-                      <button type="button" className="btn btn-outline-danger"><i className="fa fa-remove"> Remove
-                      </i></button>
-                </div></td>
-              </tr>
             </table>
             </div>
           </div>

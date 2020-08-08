@@ -1,0 +1,32 @@
+[
+  {
+    "id":1,
+    "name":"Selena Gomez",
+    "phone":"0122334456",
+    "permission": 1
+  },
+  {
+    "id":2,
+    "name":"Taylor Swift",
+    "phone":"0122334456",
+    "permission": 2
+  },
+  {
+    "id":3,
+    "name":"Zayn Malik",
+    "phone":"0122334456",
+    "permission": 1
+  },
+  {
+    "id":4,
+    "name":"Anne Hathaway",
+    "phone":"0122334456",
+    "permission": 1
+  },
+  {
+    "id":5,
+    "name":"Emma Waston",
+    "phone":"0122334456",
+    "permission": 1
+  }
+]

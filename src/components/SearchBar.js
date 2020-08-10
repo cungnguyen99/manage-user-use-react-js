@@ -4,22 +4,26 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      //khai báo biến để lấy text nhập vào từ form
+      tempValue: ""
     }
   }
 
-  handleTogle = () => {
-    this.setState({ isOpen: !this.state.isOpen })
+  //truyền giá trị nhập từ form vào state
+  getText=(event)=>{
+    this.setState({tempValue: event.target.value})
   }
 
   render() {
+    console.log(this.state.tempValue)
     return (
       <div className="container-fluid">
         <div className="row">
           <div className="wrap">
             <div className="search">
-              <input type="text" className="searchTerm" placeholder="What are you looking for?" />
-              <button type="submit" className="searchButton">
+              <input type="text" className="searchTerm" onChange={(event)=>this.getText(event)} placeholder="What are you looking for?" />
+              {/* Truyền lại giá trị nhập vào props getValue mà App truyền vào với đầu vào là dl, dl trong trường hợp này là this.state.tempValue. App nhận giá trị và tìm kiếm  */}
+              <button type="submit" className="searchButton" onClick={(dl)=>this.props.getValue(this.state.tempValue)}>
                 <i className="fa fa-search" />
               </button>
             </div>

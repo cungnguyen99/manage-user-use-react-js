@@ -11,11 +11,17 @@ export default class App extends Component {
       data:data
     }
   }
+
+  //hàm lấy text từ comp Seach để tìm kiếm. Truyền hàm này vào comp Search qua props và comp Seach sẽ nhận được hàm này. Bên Search lấy được text và truyền DL nhận được vào hàm này gửi trả App
+  getTextToSearch=(value)=>{
+    console.log("du lieu nhan duoc: ",value)
+  }
+
   render(){
     return (
       <div className="App">
         <Header/>
-        <SearchBar/>
+        <SearchBar getValue={(val)=>this.getTextToSearch(val)}/>
         <Table data={this.state.data}/>
       </div>
     );

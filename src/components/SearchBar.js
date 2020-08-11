@@ -12,6 +12,9 @@ export default class SearchBar extends Component {
   //truyền giá trị nhập từ form vào state
   getText=(event)=>{
     this.setState({tempValue: event.target.value})
+
+    //viết dòng này để gọi ngay khi input thay đổi, input thay đổi thì tìm kiếm luôn chứ không cần nhấn submit hoặc nhấn cũng được
+    this.props.getValue(this.state.tempValue)
   }
 
   render() {

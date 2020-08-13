@@ -6,11 +6,19 @@ export default class Table extends Component {
   constructor(props) {
     super(props);
     this.state={
-      isCollapsed: false
+      isCollapsed: false,
+      id:'',
+      name:'',
+      phone:'',
+      permission:''
     }
   }
 
   handleTogle=()=>{this.setState({isCollapsed:!this.state.isCollapsed})}
+
+  getDataFromCard=(id, name, phone, permission)=>{
+    this.setState({id,name,phone,permission})
+  }
 
   render() {
     console.log(this.props.data)
@@ -49,7 +57,7 @@ export default class Table extends Component {
                    button sang một component mới nên không thể kiểm tra state của component CardAdd do
                    là 2 component khác nhau. Ta thấy cả 2 component Button và CardAdd đều có nằm trong component cha là Table nên ta sẽ dùng state của component cha để kiểm tra.( XEM BÀI 61). Kiểm tra thông qua việc truyền biến state của component cha qua props vào component con  */}
               <Button isCollapsed={this.state.isCollapsed} isVisiableButton={this.handleTogle}/>
-              <CardAdd isCollapsed={this.state.isCollapsed}/>
+              <CardAdd getNewUserData={(id, name, phone, permission)=>this.props.getNewUserData(id, name, phone, permission)} isCollapsed={this.state.isCollapsed}/>
             </div>
           </div>
         </section>

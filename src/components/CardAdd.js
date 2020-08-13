@@ -20,19 +20,13 @@ export default class CardAdd extends Component {
       [name]:value
     })
 
-    const res={}
-
-    res.id=this.state.id
-    res.name=this.state.name
-    res.phone=this.state.phone
-    res.permission=this.state.permission
-
   }
 
   handeTogle=()=>{
     this.setState({isOpen:!this.state.isOpen})
   }
   render() {
+    console.log(this.state)
     return (
       <div>
         <div className={!this.state.isOpen?"btn btn-block btn-outline-info visable":" disable"} onClick={this.handeTogle}>Create</div>
@@ -54,7 +48,7 @@ export default class CardAdd extends Component {
               <option value={2}>Admin</option>
             </select>
           </div>
-          <button type="button" className="btn my-3 mx-2 btn-outline-success">Create</button>
+          <button type="button" onClick={(id, name, phone, permission)=>this.props.getNewUserData(this.state.id, this.state.name,this.state.phone, this.state.permission)} className="btn my-3 mx-2 btn-outline-success">Create</button>
         </div>
       </div>
     )

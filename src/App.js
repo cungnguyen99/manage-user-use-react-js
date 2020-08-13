@@ -21,6 +21,18 @@ export default class App extends Component {
     })
   }
 
+  //hàm lấy dữ liệu từ Table 
+  getNewUserData=(id, name, phone, permission)=>{
+
+    const res={}
+
+    res.id=id
+    res.name=name
+    res.phone=phone
+    res.permission=permission
+
+    console.log('âfhjhfjhfaj',res.name, res.phone)
+  }
   searchResults = (res) => {
     this.state.data.forEach((item) => {
       //Kiểm tra bằng hàm indexOf, nếu trùng tên trả về thứ tự của từ đó trong cụm từ nếu không có trả về -1
@@ -42,7 +54,9 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <SearchBar getValue={(val) => this.getTextToSearch(val)} />
-        <Table data={res} />
+        <Table 
+          getNewUserData={(id, name, phone, permission)=>this.getNewUserData(id, name, phone, permission)} 
+          data={res} />
       </div>
     );
   }

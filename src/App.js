@@ -4,6 +4,7 @@ import Table from './components/Table';
 import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 import data from './data.json'
+import { v1 as uuidv1 } from 'uuid';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +28,7 @@ export default class App extends Component {
 
     const res={}
 
-    res.id=id
+    res.id=uuidv1()
     res.name=name
     res.phone=phone
     res.permission=permission

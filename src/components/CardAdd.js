@@ -50,7 +50,7 @@ export default class CardAdd extends Component {
           </div>
           {/* Để phần nhập vào bao bởi thẻ form rồi để nút là input kiểu reset chứ không phải button để khi nhấn nút thì nó cũng xóa luôn giá trị vừa nhập. */}
           <input type="reset" onClick={(id, name, phone, permission)=>this.props.getNewUserData(this.state.id, this.state.name,this.state.phone, this.state.permission)} value="Create" className="btn my-3 mx-2 btn-outline-success"/>
-        </div>
+        </div> 
       </form>
     )
   }

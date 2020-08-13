@@ -23,6 +23,7 @@ export default class App extends Component {
 
   //hàm lấy dữ liệu từ Table 
   getNewUserData=(id, name, phone, permission)=>{
+    console.log(data)
 
     const res={}
 
@@ -31,7 +32,11 @@ export default class App extends Component {
     res.phone=phone
     res.permission=permission
 
-    console.log('âfhjhfjhfaj',res.name, res.phone)
+    this.setState({data: [...this.state.data,res]})
+
+    data.push(res)
+    console.log(data)
+
   }
   searchResults = (res) => {
     this.state.data.forEach((item) => {

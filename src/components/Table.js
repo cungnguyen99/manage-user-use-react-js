@@ -6,22 +6,13 @@ export default class Table extends Component {
   constructor(props) {
     super(props);
     this.state={
-      isCollapsed: false,
-      id:'',
-      name:'',
-      phone:'',
-      permission:''
+      isCollapsed: false
     }
   }
 
   handleTogle=()=>{this.setState({isCollapsed:!this.state.isCollapsed})}
 
-  getDataFromCard=(id, name, phone, permission)=>{
-    this.setState({id,name,phone,permission})
-  }
-
   render() {
-    console.log(this.props.data)
     return (
       <div className="container-fluid">
         <section>

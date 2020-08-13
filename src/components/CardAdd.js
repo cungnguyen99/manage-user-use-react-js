@@ -28,7 +28,7 @@ export default class CardAdd extends Component {
   render() {
     console.log(this.state)
     return (
-      <div>
+      <form>
         <div className={!this.state.isOpen?"btn btn-block btn-outline-info visable":" disable"} onClick={this.handeTogle}>Create</div>
         <div className={this.state.isOpen?"btn btn-block btn-outline-secondary visable":"disable"} onClick={this.handeTogle}>Close</div>
         {/* C1 để hiện thị form dùng state của chính component CardAdd bằng cách dùng className={this.state.isOpen?"card border-info mb-3 mt-3 visable":"disable" C2 dùng props nhận được từ component cha */}
@@ -48,9 +48,10 @@ export default class CardAdd extends Component {
               <option value={2}>Admin</option>
             </select>
           </div>
-          <button type="button" onClick={(id, name, phone, permission)=>this.props.getNewUserData(this.state.id, this.state.name,this.state.phone, this.state.permission)} className="btn my-3 mx-2 btn-outline-success">Create</button>
+          {/* Để phần nhập vào bao bởi thẻ form rồi để nút là input kiểu reset chứ không phải button để khi nhấn nút thì nó cũng xóa luôn giá trị vừa nhập. */}
+          <input type="reset" onClick={(id, name, phone, permission)=>this.props.getNewUserData(this.state.id, this.state.name,this.state.phone, this.state.permission)} value="Create" className="btn my-3 mx-2 btn-outline-success"/>
         </div>
-      </div>
+      </form>
     )
   }
 }

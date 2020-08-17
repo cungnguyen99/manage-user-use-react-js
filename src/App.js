@@ -50,8 +50,9 @@ export default class App extends Component {
     console.log(res)
   }
 
-  editUser=()=>{
-    console.log('ket not thanh cong')
+  //truyền tham số user để lấy về thông tin một user nhận từ table
+  editUser=(user)=>{
+    console.log('ket not thanh cong', user)
   }
 
   render() {
@@ -69,7 +70,7 @@ export default class App extends Component {
         <Table 
           getNewUserData={(id, name, phone, permission)=>this.getNewUserData(id, name, phone, permission)} 
           data={res}
-          editUser={()=>this.editUser()} />
+          editUser={(user)=>this.editUser(user)} />
       </div>
     );
   }

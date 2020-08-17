@@ -36,7 +36,11 @@ export default class Table extends Component {
               <tbody>
                {
                  this.props.data.map((value, key)=>{
-                   return <SingleRow value={value} key={key} editUser={()=>this.props.editUser()}/>
+                   return <SingleRow 
+                            value={value} 
+                            key={key} 
+                            // tham số truyền vào editUser trong TH này value. Vì value chưa đầy đủ tt của 1 user
+                            editUser={(user)=>this.props.editUser(value)}/>
                  })
                 }
               </tbody>

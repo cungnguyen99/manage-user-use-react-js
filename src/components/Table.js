@@ -36,7 +36,7 @@ export default class Table extends Component {
               <tbody>
                {
                  this.props.data.map((value, key)=>{
-                   return <SingleRow value={value} key={key}/>
+                   return <SingleRow value={value} key={key} editUser={()=>this.props.editUser()}/>
                  })
                 }
               </tbody>

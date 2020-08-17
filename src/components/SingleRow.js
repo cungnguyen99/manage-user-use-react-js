@@ -9,7 +9,7 @@ export default class SingleRow extends Component {
           <td>{this.props.value.phone}</td>
           <td>{`${this.props.value.permission===1?" Admin":" Staff"}`}</td>
           <td> <div className="btn-group btn-group-toggle" data-toggle="buttons">
-            <button type="button" className="btn btn-outline-success"> <i className="fa fa-edit"> Edit
+            <button type="button" className="btn btn-outline-success" onClick={()=>this.props.editUser()}> <i className="fa fa-edit"> Edit
                       </i></button>
             <button type="button" className="btn btn-outline-danger"><i className="fa fa-remove"> Remove
                       </i></button>

@@ -39,6 +39,7 @@ export default class App extends Component {
     console.log(data)
 
   }
+  
   searchResults = (res) => {
     this.state.data.forEach((item) => {
       //Kiểm tra bằng hàm indexOf, nếu trùng tên trả về thứ tự của từ đó trong cụm từ nếu không có trả về -1
@@ -48,6 +49,11 @@ export default class App extends Component {
     })
     console.log(res)
   }
+
+  editUser=()=>{
+    console.log('ket not thanh cong')
+  }
+
   render() {
     var res=[]
     this.state.data.forEach((item) => {
@@ -62,7 +68,8 @@ export default class App extends Component {
         <SearchBar getValue={(val) => this.getTextToSearch(val)} />
         <Table 
           getNewUserData={(id, name, phone, permission)=>this.getNewUserData(id, name, phone, permission)} 
-          data={res} />
+          data={res}
+          editUser={()=>this.editUser()} />
       </div>
     );
   }

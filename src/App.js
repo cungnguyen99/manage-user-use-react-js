@@ -5,12 +5,14 @@ import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 import data from './data.json'
 import { v1 as uuidv1 } from 'uuid';
+import EditUser from './components/EditUser';
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: data,
-      valueSearch:''
+      valueSearch:'',
+      isOpenEditForm:false
     }
   }
 
@@ -22,8 +24,13 @@ export default class App extends Component {
     })
   }
 
+  //hàm setstate cho isOpenEditForm
+  checkEditForm=()=>{
+    this.setState({isOpenEditForm:!this.state.isOpenEditForm})
+    console.log(this.state.isOpenEditForm)
+  }
   //hàm lấy dữ liệu từ Table 
-  getNewUserData=(id, name, phone, permission)=>{
+  getNewUserData=( name, phone, permission)=>{
     console.log(data)
 
     const res={}
@@ -66,11 +73,13 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header />
+        <EditUser isOpenEditForm={this.state.isOpenEditForm} checkEditForm={this.checkEditForm}/>
         <SearchBar getValue={(val) => this.getTextToSearch(val)} />
         <Table 
           getNewUserData={(id, name, phone, permission)=>this.getNewUserData(id, name, phone, permission)} 
           data={res}
-          editUser={(user)=>this.editUser(user)} />
+          editUser={(user)=>this.editUser(user)} 
+          checkEditForm={this.checkEditForm}/>
       </div>
     );
   }

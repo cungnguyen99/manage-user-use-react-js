@@ -39,6 +39,7 @@ export default class Table extends Component {
                    return <SingleRow 
                             value={value} 
                             key={key} 
+                            checkEditForm={this.props.checkEditForm}
                             // tham số truyền vào editUser trong TH này value. Vì value chưa đầy đủ tt của 1 user
                             editUser={(user)=>this.props.editUser(value)}/>
                  })

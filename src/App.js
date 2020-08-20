@@ -12,7 +12,9 @@ export default class App extends Component {
     this.state = {
       data: data,
       valueSearch:'',
-      isOpenEditForm:false
+      isOpenEditForm:false,
+      //lưu giá trị của obj khi nhấn edit 
+      userEditObj:{}
     }
   }
 
@@ -60,6 +62,7 @@ export default class App extends Component {
   //truyền tham số user để lấy về thông tin một user nhận từ table
   editUser=(user)=>{
     console.log('ket not thanh cong', user)
+    this.setState({userEditObj: user})
   }
 
   render() {
@@ -73,7 +76,10 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header />
-        <EditUser isOpenEditForm={this.state.isOpenEditForm} checkEditForm={this.checkEditForm}/>
+        <EditUser 
+          isOpenEditForm={this.state.isOpenEditForm} 
+          checkEditForm={this.checkEditForm}
+          userEditObj={this.state.userEditObj}/>
         <SearchBar getValue={(val) => this.getTextToSearch(val)} />
         <Table 
           getNewUserData={(id, name, phone, permission)=>this.getNewUserData(id, name, phone, permission)} 

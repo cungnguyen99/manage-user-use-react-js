@@ -40,7 +40,7 @@ export default class Table extends Component {
                             value={value} 
                             key={key} 
                             checkEditForm={this.props.checkEditForm}
-                            // tham số truyền vào editUser trong TH này value. Vì value chưa đầy đủ tt của 1 user
+                            // tham số truyền vào editUser trong TH này value. Vì value chưa đầy đủ tt của 1 user và nó sẽ cho biết mình đang nhấn vào user nào
                             editUser={(user)=>this.props.editUser(value)}/>
                  })
                 }

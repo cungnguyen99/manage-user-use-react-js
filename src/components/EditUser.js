@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
 
 export default class EditUser extends Component {
+
   constructor(props) {
     super(props);
     this.state={
-      infoEdit: this.props.userEditObj
+      id: this.props.userEditObj.id,
+      name: this.props.userEditObj.name,
+      phone: this.props.userEditObj.phone,
+      permission: this.props.userEditObj.permission
     }
   }
   
-  isChange = (e) => {
+  isChange=(e)=>{
     const {name, value}=e.target
-    this.setState({infoEdit:{...this.state.infoEdit, name: value}})
+    this.setState({
+      [name]:value
+    })
+    console.log(this.props.userEditObj,this.state.id)
   }
+
   render() {
     return (
-      <div className={this.props.isOpenEditForm?"container mb-4 visiable":"disable"}>
+      <div className="container mb-4 visiable">
         <div className='row'>
           <div className='col-2'></div>
           <div className="col-8">

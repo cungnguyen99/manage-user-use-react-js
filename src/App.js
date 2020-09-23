@@ -66,7 +66,13 @@ export default class App extends Component {
 
   //hàm nhận thông tin sửa từ comp Edit
   getUserInfoEdit=(info)=>{
-    console.log("thong tin sua:",info.name)
+    this.state.data.forEach((item)=>{
+      if(item.id===info.id){
+        item.name=info.name
+        item.phone=info.phone
+        item.permission=info.permission
+      }
+    })
   }
   render() {
     var res=[]

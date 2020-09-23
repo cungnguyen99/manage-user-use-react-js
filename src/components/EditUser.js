@@ -17,9 +17,18 @@ export default class EditUser extends Component {
     this.setState({
       [name]:value
     })
-    console.log(this.props.userEditObj,this.state.id)
   }
 
+  saveButton=()=>{
+    this.props.checkEditForm()
+    var info={}
+    info.id=this.state.id
+    info.name=this.state.name
+    info.phone=this.state.phone
+    info.permission=this.state.permission
+    this.props.getUserInfoEdit(info)
+
+  }
   render() {
     return (
       <div className="container mb-4 visiable">
@@ -42,7 +51,7 @@ export default class EditUser extends Component {
                     <option value={2}>Admin</option>
                   </select>
                 </div>
-                <input type="reset" value="Save" onClick={this.props.checkEditForm} className="btn my-3 mx-2 btn-outline-success" />
+                <input type="button" value="Save" onClick={this.saveButton} className="btn my-3 mx-2 btn-outline-success" />
               </div>
             </form>
           </div>

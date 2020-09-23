@@ -64,6 +64,10 @@ export default class App extends Component {
     this.setState({userEditObj: user})
   }
 
+  //hàm nhận thông tin sửa từ comp Edit
+  getUserInfoEdit=(info)=>{
+    console.log("thong tin sua:",info.name)
+  }
   render() {
     var res=[]
     this.state.data.forEach((item) => {
@@ -74,15 +78,19 @@ export default class App extends Component {
     })
     return (
       <div className="App">
+        
         <Header />
         {
           this.state.isOpenEditForm && (
             <EditUser 
+            getUserInfoEdit={(info)=>this.getUserInfoEdit(info)}
             checkEditForm={this.checkEditForm}
             userEditObj={this.state.userEditObj}/>
           )
         }
+
         <SearchBar getValue={(val) => this.getTextToSearch(val)} />
+        
         <Table 
           getNewUserData={(id, name, phone, permission)=>this.getNewUserData(id, name, phone, permission)} 
           data={res}

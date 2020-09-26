@@ -12,6 +12,12 @@ export default class Table extends Component {
 
   handleTogle=()=>{this.setState({isCollapsed:!this.state.isCollapsed})}
 
+  //hàm xóa người dùng
+  removeClick=(id)=>{
+    //nhận props removeClick từ comp cha là App
+    this.props.removeClick(id)
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -37,6 +43,7 @@ export default class Table extends Component {
                {
                  this.props.data.map((value, key)=>{
                    return <SingleRow 
+                            removeClick={(id)=>this.removeClick(id)}
                             value={value} 
                             key={key} 
                             checkEditForm={this.props.checkEditForm}

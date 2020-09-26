@@ -74,6 +74,11 @@ export default class App extends Component {
       }
     })
   }
+
+  //Hàm xóa người dùng
+  removeClick=(id)=>{
+    console.log("id la", id)
+  }
   render() {
     var res=[]
     this.state.data.forEach((item) => {
@@ -98,6 +103,7 @@ export default class App extends Component {
         <SearchBar getValue={(val) => this.getTextToSearch(val)} />
         
         <Table 
+        removeClick={(id)=>this.removeClick(id)}
           getNewUserData={(id, name, phone, permission)=>this.getNewUserData(id, name, phone, permission)} 
           data={res}
           editUser={this.editUser} 

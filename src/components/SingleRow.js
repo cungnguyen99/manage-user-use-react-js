@@ -5,6 +5,12 @@ export default class SingleRow extends Component {
     this.props.editUser();
     this.props.checkEditForm()
   }
+
+  removeClick=(id)=>{
+    //props removeClick ở bên comp Table
+    this.props.removeClick(id)
+  }
+
   render() {
     return (
         <tr>
@@ -15,7 +21,7 @@ export default class SingleRow extends Component {
           <td> <div className="btn-group btn-group-toggle" data-toggle="buttons">
             <button type="button" className="btn btn-outline-success" onClick={()=>this.editClick()}> <i className="fa fa-edit"> Edit
                       </i></button>
-            <button type="button" className="btn btn-outline-danger" onClick={this.props.checkEditForm}><i className="fa fa-remove"> Remove
+            <button type="button" className="btn btn-outline-danger" onClick={(id)=>this.removeClick(this.props.value.id)}><i className="fa fa-remove"> Remove
                       </i></button>
           </div></td>
         </tr>

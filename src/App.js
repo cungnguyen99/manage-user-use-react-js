@@ -45,7 +45,8 @@ export default class App extends Component {
     this.setState({data: [...this.state.data,res]})
 
     data.push(res)
-    console.log(data)
+    
+    localStorage.setItem('userData',JSON.stringify(this.state.data))
 
   }
   
@@ -73,6 +74,8 @@ export default class App extends Component {
         item.permission=info.permission
       }
     })
+    //dua du lieu vao localStorage
+    localStorage.setItem('userData',JSON.stringify(this.state.data))
   }
 
   //Hàm xóa người dùng
@@ -81,6 +84,8 @@ export default class App extends Component {
     const tempData=this.state.data.filter(item=>item.id!==id)
 
     this.setState({data:tempData})
+
+    localStorage.setItem('userData',JSON.stringify(tempData))
   }
   render() {
     var res=[]

@@ -77,7 +77,10 @@ export default class App extends Component {
 
   //Hàm xóa người dùng
   removeClick=(id)=>{
-    console.log("id la", id)
+
+    const tempData=this.state.data.filter(item=>item.id!==id)
+
+    this.setState({data:tempData})
   }
   render() {
     var res=[]

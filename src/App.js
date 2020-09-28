@@ -33,8 +33,7 @@ export default class App extends Component {
   }
   //hàm lấy dữ liệu từ Table 
   getNewUserData=( name, phone, permission)=>{
-    console.log(data)
-
+    
     const res={}
 
     res.id=uuidv1()
@@ -46,7 +45,8 @@ export default class App extends Component {
 
     data.push(res)
     
-    localStorage.setItem('userData',JSON.stringify(this.state.data))
+    localStorage.setItem('user',JSON.stringify(this.state.data))
+    console.log(res)
 
   }
   
@@ -75,7 +75,7 @@ export default class App extends Component {
       }
     })
     //dua du lieu vao localStorage
-    localStorage.setItem('userData',JSON.stringify(this.state.data))
+    localStorage.setItem('user',JSON.stringify(this.state.data))
   }
 
   //Hàm xóa người dùng
@@ -85,8 +85,20 @@ export default class App extends Component {
 
     this.setState({data:tempData})
 
-    localStorage.setItem('userData',JSON.stringify(tempData))
+    localStorage.setItem('user',JSON.stringify(tempData))
   }
+
+  //truoc khi render ktra xem có dl hay chua bang ham cwm
+  componentWillMount() {
+    if(localStorage.getItem('user')===null){
+      //nếu chưa có thì tạo 1 storage mới với dữ liệu là file data.json
+      localStorage.setItem('user', JSON.stringify(data))
+    }else{
+      var temp=JSON.parse(localStorage.getItem('user'))
+      this.setState({data:temp})
+    }
+  }
+  
   render() {
     var res=[]
     this.state.data.forEach((item) => {
@@ -95,6 +107,7 @@ export default class App extends Component {
         res.push(item)
       }
     })
+
     return (
       <div className="App">
         

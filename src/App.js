@@ -41,12 +41,17 @@ export default class App extends Component {
     res.phone=phone
     res.permission=permission
 
-    this.setState({data: [...this.state.data,res]})
+    var items=this.state.data
 
-    data.push(res)
+    items.push(res)
+
+    // this.setState({data: [...this.state.data,res]})
+
+    this.setState({data:items})
+
+    // data.push(res)
     
-    localStorage.setItem('user',JSON.stringify(this.state.data))
-    console.log(res)
+    localStorage.setItem('user',JSON.stringify(items))
 
   }
   

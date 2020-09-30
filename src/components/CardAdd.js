@@ -45,7 +45,7 @@ export default class CardAdd extends Component {
               <option value={2}>Admin</option>
             </select>
           </div>
-          <input type="reset" onClick={(id, name, phone, permission)=>this.props.getNewUserData(this.state.id, this.state.name,this.state.phone, this.state.permission)} value="Create" className="btn my-3 mx-2 btn-outline-success"/>
+          <input type="reset" onClick={( name, phone, permission)=>this.props.getNewUserData(this.state.name,this.state.phone, this.state.permission)} value="Create" className="btn my-3 mx-2 btn-outline-success"/>
         </div> 
       </form>
     )
